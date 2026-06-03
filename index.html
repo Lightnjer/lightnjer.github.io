@@ -293,7 +293,8 @@ nav a:hover, nav a.active {
 .news-text a { color: var(--color-primary); }
 
 /* ===== PUBLICATIONS ===== */
-.pub-list { display: flex; flex-direction: column; gap: var(--space-6); }
+.pub-list { display: none /* "flex" before */;
+   flex-direction: column; gap: var(--space-6); }
 .pub-item {
   padding: var(--space-4) var(--space-5);
   background: var(--color-surface);
@@ -336,7 +337,7 @@ nav a:hover, nav a.active {
 
 /* ===== RESEARCH ===== */
 .research-grid {
-  display: grid;
+  display: none; /* "grid" before */
   grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr));
   gap: var(--space-4);
 }
@@ -538,10 +539,10 @@ footer {
       <!-- BIO (always visible above sections) -->
       <div class="section-block">
         <p class="bio-text">
-          I am a Neuroscience PhD researcher at Stockholm University with a background in biomedical science. My research focuses on the application of
-          <em>functional Magnetic Resonance Imaging</em> (fMRI) and multivariate pattern analysis (MVPA) to understand the neurocognitive mechanisms underlying
-          emotion recognition in the human brain. I use machine learning methods — including Support Vector Machines and Bayesian mixed-effects models —
-          to decode affective representations from single-subject neuroimaging data.
+          I am a Neuroscience PhD researcher at Stockholm University with a background cognitive science.
+          My work sits at the intersection of affective neuroscience,  neuroimaging, and multivariate pattern analysis (MVPA).
+          I use single-subject fMRI designs with emotion recognition paradigms to decode and characterise neural
+          representations of emotion, aiming to investigate stable neural patterns within and across individuals.
         </p>
       </div>
 
@@ -562,9 +563,9 @@ footer {
       <div id="section-research" class="page-section section-block">
         <span class="section-title">Research</span>
         <p class="bio-text" style="margin-bottom: var(--space-5);">
-          My work sits at the intersection of affective neuroscience, computational neuroimaging, and machine learning.
-          I use single-subject fMRI designs with high trial-count paradigms to decode and characterise neural
-          representations of emotion, aiming to bridge categorical and dimensional accounts of affect.
+          My work sits at the intersection of affective neuroscience,  neuroimaging, and multivariate pattern analysis.
+          I use single-subject fMRI designs with emotion recognition paradigms to decode and characterise neural
+          representations of emotion, aiming to investigate stable neural patterns within and across individuals.
         </p>
         <div class="research-grid">
           <div class="research-card">
@@ -572,7 +573,7 @@ footer {
               <ellipse cx="12" cy="12" rx="10" ry="6"/><path d="M12 2v20M2 12h20"/>
             </svg>
             <h3>fMRI &amp; Neuroimaging</h3>
-            <p>Single-subject fMRI paradigm design, acquisition, and preprocessing using fMRIPrep and SPM12. First- and second-level GLM modelling with custom HRF settings.</p>
+            <p>Single-subject fMRI design,</p>
           </div>
           <div class="research-card">
             <svg class="research-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
