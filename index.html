@@ -613,7 +613,7 @@ footer {
     <main class="main-content" id="main-content">
 
       <!-- BIO (always visible above sections) -->
-      <div class="section-block">
+      <div id="section-bio" class="section-block">
         <p class="bio-text">
           I am a Neuroscience PhD researcher at Stockholm University with a background cognitive science.
           My work sits at the intersection of affective neuroscience,  neuroimaging, and multivariate pattern analysis (MVPA).
@@ -881,6 +881,12 @@ function showSection(id, clickedLink) {
   if (target) target.classList.add('active');
   document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
   if (clickedLink) clickedLink.classList.add('active');
+  
+  // Show bio only for news and research sections
+  const bioDIv = document.getElementById('section-bio');
+  if (bioDIv) {
+    bioDIv.style.display = (id === 'news' || id === 'research') ? 'flex' : 'none';
+  }
 }
 
 // Handle URL hash on page load
@@ -894,6 +900,10 @@ window.addEventListener('load', () => {
         link.classList.add('active');
       }
     });
+  } else {
+    // Default to news tab on first load
+    const bioDIv = document.getElementById('section-bio');
+    if (bioDIv) bioDIv.style.display = 'flex';
   }
 });
 </script>
