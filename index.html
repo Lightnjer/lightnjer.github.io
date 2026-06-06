@@ -882,6 +882,20 @@ function showSection(id, clickedLink) {
   document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
   if (clickedLink) clickedLink.classList.add('active');
 }
+
+// Handle URL hash on page load
+window.addEventListener('load', () => {
+  const hash = window.location.hash.substring(1);
+  if (hash) {
+    showSection(hash);
+    const navLinks = document.querySelectorAll('nav a');
+    navLinks.forEach(link => {
+      if (link.getAttribute('onclick').includes(`showSection('${hash}'`)) {
+        link.classList.add('active');
+      }
+    });
+  }
+});
 </script>
 </body>
 </html>
