@@ -335,6 +335,81 @@ nav a:hover, nav a.active {
 }
 .pub-link:hover { background: var(--color-primary-highlight); text-decoration: none; }
 
+/* ===== RESOURCES ===== */
+.resources-container { display: flex; flex-direction: column; gap: var(--space-6); }
+.resource-category-title {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--color-text);
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-4);
+}
+.posters-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
+  gap: var(--space-6);
+}
+.poster-item {
+  background: var(--color-surface);
+  border: 1px solid oklch(from var(--color-text) l c h / 0.07);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--transition), border-color var(--transition);
+  display: flex;
+  flex-direction: column;
+}
+.poster-item:hover {
+  box-shadow: var(--shadow-md);
+  border-color: oklch(from var(--color-primary) l c h / 0.25);
+}
+.poster-image-wrapper {
+  width: 100%;
+  aspect-ratio: 8.5 / 11;
+  overflow: hidden;
+  background: var(--color-surface-2);
+}
+.poster-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.poster-title {
+  font-size: var(--text-base);
+  font-weight: 600;
+  color: var(--color-text);
+  padding: var(--space-4) var(--space-4) var(--space-2) var(--space-4);
+  line-height: 1.4;
+}
+.poster-subtitle {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  padding: 0 var(--space-4) var(--space-3) var(--space-4);
+  line-height: 1.5;
+  margin: 0;
+}
+.poster-links {
+  display: flex;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4) var(--space-4) var(--space-4);
+  margin-top: auto;
+}
+.poster-link {
+  font-size: var(--text-xs);
+  font-weight: 500;
+  color: var(--color-primary);
+  border: 1px solid var(--color-primary-highlight);
+  padding: 2px var(--space-2);
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  transition: background var(--transition), color var(--transition);
+  flex: 1;
+  text-align: center;
+}
+.poster-link:hover { background: var(--color-primary-highlight); text-decoration: none; }
+
 /* ===== RESEARCH ===== */
 .research-grid {
   display: none; /* "grid" before */
@@ -476,6 +551,7 @@ footer {
       <a href="#" onclick="showSection('news', this); return false;" class="active">News</a>
       <a href="#" onclick="showSection('research', this); return false;">Research</a>
       <a href="#" onclick="showSection('publications', this); return false;">Publications</a>
+      <a href="#" onclick="showSection('resources', this); return false;">Resources</a>
       <a href="#" onclick="showSection('cv', this); return false;">CV</a>
       <a href="#" onclick="showSection('contact', this); return false;">Contact</a>
     </nav>
@@ -637,6 +713,26 @@ footer {
             </div>
           </div>
 
+        </div>
+      </div>
+
+      <!-- RESOURCES SECTION -->
+      <div id="section-resources" class="page-section section-block">
+        <span class="section-title">Resources</span>
+        <div class="resources-container">
+          <h3 class="resource-category-title">Posters</h3>
+          <div class="posters-grid">
+            <div class="poster-item">
+              <div class="poster-image-wrapper">
+                <img src="resources/poster/poster_niklas.jpeg" alt="ESCAN / OHBM Poster 2026" loading="lazy">
+              </div>
+              <h4 class="poster-title">ESCAN / OHBM Poster 2026</h4>
+              <p class="poster-subtitle">Decoding Deep Sampled Brains: High-Accuracy Binary Emotion Classification from Audiovisual Stimuli</p>
+              <div class="poster-links">
+                <a href="resources/poster/ohbm_poster_niklas.pdf" class="poster-link" download>Download PDF</a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
